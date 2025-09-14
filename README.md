@@ -8,7 +8,7 @@ PowerShell Website Directory Search
 ## UI
 
 <div style="text-align: center;">
-    <img src="your-image.jpg" alt="Centered Image" width="600"/>
+   <img width="600" alt="image" src="https://github.com/user-attachments/assets/9b75f30f-df36-4e55-971e-327b77e582d3" />
 </div>
 
 
