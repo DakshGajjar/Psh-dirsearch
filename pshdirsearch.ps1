@@ -2,7 +2,7 @@ Add-Type -AssemblyName System.Windows.Forms, System.Drawing
 
 # Fetch the wordlist content
 $wordlistUrl = "https://raw.githubusercontent.com/v0re/dirb/refs/heads/master/wordlists/common.txt"
-$wlist = (Invoke-WebRequest -Uri $wordlistUrl).Content -split "`n"
+$wlist = (Invoke-WebRequest -Uri $wordlistUrl).Content -split "`n" | Select-Object -First 150
 
 #$wlist | Select-Object -First 10
 
@@ -96,5 +96,17 @@ $dataGridView.Columns.Add("Info", "Info")
 $dataGridView.AutoSizeColumnsMode = 'Fill'
 $dataGridView.font = New-Object System.Drawing.Font("Aptos", 11)
 $panel3.Controls.Add($dataGridView)
+
+$clearbtn = New-Object Windows.Forms.button
+$clearbtn.Location = New-Object Drawing.Point 280,450
+$clearbtn.Size = New-Object Drawing.Point 100,30
+$clearbtn.Text = "Clear"
+$clearbtn.font = New-Object System.Drawing.Font("Aptos", 12)
+$clearbtn.Add_Click({
+    $dataGridView.Rows.Clear()
+    $urlbox.Clear()
+    $progressBar.Value=0
+})
+$panel3.controls.add($clearbtn)
 
 $form.ShowDialog()
